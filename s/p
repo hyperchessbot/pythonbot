@@ -3,17 +3,17 @@
 git config --global user.email "hyperchessbot@gmail.com"
 git config --global user.name "hyperchessbot"
 
-rm -rf .git
+#rm -rf .git
 
-git init
+#git init
 
 git checkout -b main
 
 git add .
 
-#git commit -m "$*"
+git commit -m "$*"
 
-git commit -m "Initial commit"
+#git commit -m "Initial commit"
 
 read -n1 -p "Push? [y,n]" doit
 
