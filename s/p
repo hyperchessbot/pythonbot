@@ -1,0 +1,35 @@
+#!/bin/bash
+
+git config --global user.email "hyperchessbot@gmail.com"
+git config --global user.name "hyperchessbot"
+
+rm -rf .git
+
+git init
+
+git checkout -b main
+
+git add .
+
+#git commit -m "$*"
+
+git commit -m "Initial commit"
+
+read -n1 -p "Push? [y,n]" doit
+
+if [[ $doit == "Y" || $doit == "y" ]]; then
+  MSG=$'\nPushing'
+  echo "$MSG"
+
+  #git branch -d master
+
+  #git push https://hyperchessbot:$GITHUB_PUSH_TOKEN@github.com/hyperchessbot/pythonbot --delete master
+
+  #git push https://hyperchessbotauthor:$GITLAB_PUSH_TOKEN@gitlab.com/hyperchessbotauthor/pythonbot --delete master
+
+  git push https://hyperchessbot:$GITHUB_PUSH_TOKEN@github.com/hyperchessbot/pythonbot main --force
+  
+  git push https://hyperchessbotauthor:$GITLAB_PUSH_TOKEN@gitlab.com/hyperchessbotauthor/pythonbot main --force
+else
+  echo $"\nPush canceled."
+fi
